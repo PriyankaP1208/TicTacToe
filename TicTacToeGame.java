@@ -17,6 +17,7 @@ public class TicTacToeGame
 		{
 			System.out.println("Computer will play");
 		}
+		showBoard(board);
 	}
 
 	private static char[] createBoard()
@@ -34,5 +35,13 @@ public class TicTacToeGame
 		double rndomCheck=Math.floor(Math.random()*10)%2;
 		int randomCheck = 0;
 		return randomCheck;
+	}
+	private static void showBoard(char board[])
+	{
+		System.out.println("| "+board[0]+" | "+board[1]+" | "+board[2]+" |");
+		System.out.println("|-----------|");
+		System.out.println("| "+board[3]+" | "+board[4]+" | "+board[5]+" |");
+		System.out.println("|-----------|");
+		System.out.println("| "+board[6]+" | "+board[7]+" | "+board[8]+" |");
 	}
 }
