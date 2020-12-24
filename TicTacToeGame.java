@@ -7,6 +7,7 @@ public class TicTacToeGame
 	public static void main(String[] args)
 	{
 		int index,randomCheck = 0,toss=0;
+		char player,computer;
 		char[] board=createBoard();
 		play();
 		if(randomCheck==toss)
@@ -17,6 +18,16 @@ public class TicTacToeGame
 		{
 			System.out.println("Computer will play");
 		}
+		player=getLetter();
+		if(player=='X')
+		{
+			computer='O';
+		}
+		else
+		{
+			computer='X';
+		}
+		System.out.println("Computer letter is:"+computer);
 		showBoard(board);
 	}
 
@@ -35,6 +46,21 @@ public class TicTacToeGame
 		double rndomCheck=Math.floor(Math.random()*10)%2;
 		int randomCheck = 0;
 		return randomCheck;
+	}
+	private static char getLetter()
+	{
+		char player,computer;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter letter  X or O:");
+		player=sc.next().charAt(0);
+		if(player!='X' && player!='O')
+		{
+			System.out.println("Enter valid input");
+			player=getLetter();
+		}
+		System.out.println("Player letter is:"+player);
+		return player;  
+
 	}
 	private static void showBoard(char board[])
 	{
