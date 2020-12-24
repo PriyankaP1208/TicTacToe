@@ -29,6 +29,8 @@ public class TicTacToeGame
 		}
 		System.out.println("Computer letter is:"+computer);
 		showBoard(board);
+		index=isFree(board);
+		doMove(board,player,index);
 	}
 
 	private static char[] createBoard()
@@ -69,5 +71,27 @@ public class TicTacToeGame
 		System.out.println("| "+board[3]+" | "+board[4]+" | "+board[5]+" |");
 		System.out.println("|-----------|");
 		System.out.println("| "+board[6]+" | "+board[7]+" | "+board[8]+" |");
+	}
+	private static void doMove(char board[],char player,int index)
+	{
+		board[index]=player;
+		showBoard(board);
+	}
+	private static int isFree(char board[])
+	{
+		int index;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter index from 0 to 8");
+		index=sc.nextInt();
+		if(index>0 && index<9 && board[index]==' ')
+		{
+			return index;
+		}
+		else
+		{
+			System.out.println("Re Enter index:");
+			isFree(board);
+			return 0;
+		}
 	}
 }
